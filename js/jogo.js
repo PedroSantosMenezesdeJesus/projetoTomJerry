@@ -1,7 +1,15 @@
-<<<<<<< HEAD
-var PLAY = 1
-var END = 0 
-var gameState == PLAY
-=======
+let gameState = true
+let bg1 = new BG(0, 0, 1500, 700, 'img/bg1.jpeg')
+let bg2 = new BG(-1500, 0, 1500, 700, 'img/bg1.jpg')
+let jerry = new JERRY(30, 500, 500, 500,'img/jerry.jpeg')
 
->>>>>>> 424b09a0863ee5ba54274a1fa0a57b6c9095363d
+function draw() {
+    bg1.drawing()
+    bg2.drawing()
+    if(gameState){
+        jerry.drawing()
+    }
+    else{
+        
+    }
+}

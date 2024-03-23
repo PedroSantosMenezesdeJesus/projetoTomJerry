@@ -1,6 +1,10 @@
+//criar classes
 class obj{
+    //criar os variavel frames 
     frame = 1
+    //crair variavel timer
     timer = 0
+    //criar constructor
     constructor(x, y, width, height, path){
         this.x = x
         this.y = y
@@ -8,12 +12,14 @@ class obj{
         this.height = height
         this.path = path
     }
-    draw(){
+    //criar função desenhar
+    drawing(){
         let img = new Image()
         img.src = this.path
         quadro.drawImage(img, this.x, this.y, this.width, this.height)
     }
-    animation(){
+    //criar função animação
+    animation(nameImage){
         this.timer
         if(this.timer > 10){
             this.timer = 0
@@ -22,6 +28,28 @@ class obj{
         if(this.frame > 4){
             this.frame = 1
         }
-        
+        this.path = 'img/' + nameImage + this.frame + '.jpng'
+    }
+}
+
+//criar classe Jerry
+class JERRY extends obj{
+    //criar direcapo
+    direcao = 0
+    //criar pontos
+    pontos = 0
+    //criar função pulo
+    pular(){
+        direcao = this.y
+    }
+}
+
+
+class BG extends obj{
+    movement(speed, limit, pos){
+        this.x += speed
+        if (this.x > limit) {
+            this.x = pos
+        }
     }
 }
