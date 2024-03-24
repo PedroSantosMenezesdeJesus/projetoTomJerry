@@ -44,6 +44,11 @@ class JERRY extends obj{
     }
 }
 
+class TRAP extends obj{
+    spawTraps(){
+
+    }
+}
 
 class BG extends obj{
     movement(speed, limit, pos){
@@ -51,5 +56,13 @@ class BG extends obj{
         if (this.x > limit) {
             this.x = pos
         }
+    }
+}
+
+class TEXT{
+    showText(text, x, y){
+        quadro.font = "40px Arial"
+        quadro.fillstyle = "white"
+        quadro.filltext(text, x, y)
     }
 }
