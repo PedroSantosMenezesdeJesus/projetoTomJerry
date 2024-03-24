@@ -20,7 +20,7 @@ class obj{
     }
     //criar função animação
     animation(nameImage){
-        this.timer
+        this.timer +=1
         if(this.timer > 10){
             this.timer = 0
             this.frame += 1
@@ -28,7 +28,7 @@ class obj{
         if(this.frame > 4){
             this.frame = 1
         }
-        this.path = 'img/' + nameImage + this.frame + '.jpng'
+        this.path = 'img/' + nameImage + this.frame + '.jpeg'
     }
 }
 
@@ -45,8 +45,17 @@ class JERRY extends obj{
 }
 
 class TRAP extends obj{
-    spawTraps(){
+    move(){
+        this.x +=20
+        if (this.x > 1500) {
+            this.x = Math.random()*(850 - 0)
+        }
+    }
+}
 
+class CHEESE extends TRAP{
+    respaw() {
+        this.x = Math.random()*(850 - 0)
     }
 }
 
