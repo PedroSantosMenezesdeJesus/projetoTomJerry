@@ -11,16 +11,17 @@ let points = new TEXT()
 
 
 
+
 function draw() {
     bg1.drawing()
     bg2.drawing()
+    points.showText(jerry.pontos, 40, 100, 'white')
     if(gameState = true){
         jerry.drawing()
         queijo1.drawing()
         queijo2.drawing()
         queijo3.drawing()
-        ratoeira.drawing()
-        points.showText(jerry.pontos, 40, 100, 'white')
+        ratoeira.drawing()       
     }
 }
 
