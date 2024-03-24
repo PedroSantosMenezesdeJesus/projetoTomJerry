@@ -21,7 +21,7 @@ class obj{
     //criar função animação
     animation(nameImage){
         this.timer +=1
-        if(this.timer > 10){
+        if(this.timer > 180){
             this.timer = 0
             this.frame += 1
         }
@@ -55,8 +55,8 @@ class JERRY extends obj{
 
 class TRAP extends obj{
     move(){
-        this.x +=20
-        if (this.x > 1500) {
+        this.x -=20
+        if (this.x < 1500) {
             this.x = Math.random()*(850 - 0)
         }
     }
@@ -70,7 +70,7 @@ class CHEESE extends TRAP{
 
 class BG extends obj{
     movement(speed, limit, pos){
-        this.x += speed
+        this.x -= speed
         if (this.x > limit) {
             this.x = pos
         }
@@ -78,7 +78,7 @@ class BG extends obj{
 }
 
 class TEXT{
-    showText(text, x, y){
+    showText(text, x, y) {
         quadro.font = "40px Arial"
         quadro.fillstyle = "white"
         quadro.filltext(text, x, y)

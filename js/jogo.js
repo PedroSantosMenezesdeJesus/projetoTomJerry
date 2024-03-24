@@ -9,6 +9,8 @@ let queijo2 = new CHEESE(1500, 500, 100, 100, 'img/cheese2.webp')
 let queijo3 = new CHEESE(1500, 500, 100, 100, 'img/cheese3.webp')
 let points = new TEXT()
 
+
+console
 function draw() {
     bg1.drawing()
     bg2.drawing()
@@ -18,13 +20,13 @@ function draw() {
         queijo2.drawing()
         queijo3.drawing()
         ratoeira.drawing()
-        points.showText()
+        points.showText(jerry.pontos, 40, 100, 'white')
     }
 }
 
 function update() {
-    bg1.movement(10, 1500, 0)
-    bg2.movement(10, 0, -1500)
+    bg1.movement(-10, 0, 1500)
+    bg2.movement(-10, -1500, 0)
     bg1.animation('bg')
     bg2.animation('bg')
     if (gameState = true) {
