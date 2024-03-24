@@ -1,3 +1,4 @@
+let quadro = document.getElementById('canvas').getContext("2d")
 let gameState = true
 let bg1 = new BG(0, 0, 1500, 700, 'img/bg1.jpeg')
 let bg2 = new BG(-1500, 0, 1500, 700, 'img/bg1.jpg')
@@ -26,32 +27,38 @@ function update() {
     bg2.movement(10, 0, -1500)
     bg1.animation('bg')
     bg2.animation('bg')
+    if (gameState = true) {
+    jerry.colisao(queijo1)
+    jerry.colisao(queijo2)
+    jerry.colisao(queijo3)
+    jerry.colisao(ratoeira)
+    }
     punctuation()
     colision()
     gameOver()
 }
 
 function punctuation() {
-    points = points + Math.round(getFrameRate()/60);
+    points +=10;
 }
 
 function colision() {
-    if (queijo1.isTouching(jerry)) {
+    if (jerry.colisao(queijo1)) {
         queijo1.respaw()
         points += 100
     }
-    if (queijo2.isTouching(jerry)) {
+    if (jerry.colisao(queijo2)) {
         queijo2.respaw()
         points += 500
     }
-    if (queijo3.isTouching(jerry)) {
+    if (jerry.colisao(queijo3)) {
         queijo3.respaw()
         points += 1000
     }
 }
 
 function gameOver() {
-    if (ratoeira.isTouching(jerry)) {
+    if (jerry.colisao(ratoeira)) {
         gameState = false
     }
     if (gameState = false) {

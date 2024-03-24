@@ -42,6 +42,15 @@ class JERRY extends obj{
     pular(){
         direcao = this.y
     }
+    colisao(obj){
+        if(this.x < obj.x + obj.largura && this.x + obj.largura > obj.x
+            && this.y < obj.y + obj.altura && this.y + obj.altura > obj.y){
+            return true
+        }
+        else{
+            return false
+        }
+    }
 }
 
 class TRAP extends obj{
