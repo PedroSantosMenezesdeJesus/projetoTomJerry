@@ -1,0 +1,23 @@
+/*  * É UM SELETOR UNIVERSAL PARA SER APLICADO EM TODAS AS PAGINAS*/
+*{
+    margin: 0; /* MARGEM ZERADA*/
+    padding: 0;/* ESPAÇAMENTO ZERADO */
+    box-sizing: border-box;/* BORDAS*/
+  }
+
+.gm1{
+    background-color: rgb(154, 118, 9);/* COR DE FUNDO COM RGB*/
+    background-image:url(../img/bg1.jpeg);
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+  }
+  
+
+.gameBoard1{
+
+background-image:url(../img/bg1.jpeg);
+}

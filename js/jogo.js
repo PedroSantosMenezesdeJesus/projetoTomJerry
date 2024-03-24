@@ -2,7 +2,7 @@ let quadro = document.getElementById('canvas').getContext("2d")
 let gameState = true
 let bg1 = new BG(0, 0, 1500, 700, 'img/bg1.jpeg')
 let bg2 = new BG(-1500, 0, 1500, 700, 'img/bg1.jpg')
-let jerry = new JERRY(30, 500, 100, 100,'img/jerry.jpeg')
+let jerry = new JERRY(30, 500, 100, 100,'img/jerry.png')
 let ratoeira = new TRAP(1500, 500, 100, 100, 'img/trap.jpg')
 let queijo1 = new CHEESE(1500, 500, 100, 100, 'img/cheese1.webp')
 let queijo2 = new CHEESE(1500, 500, 100, 100, 'img/cheese2.webp')
@@ -10,7 +10,7 @@ let queijo3 = new CHEESE(1500, 500, 100, 100, 'img/cheese3.webp')
 let points = new TEXT()
 
 
-console
+
 function draw() {
     bg1.drawing()
     bg2.drawing()
