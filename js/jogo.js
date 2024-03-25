@@ -3,25 +3,25 @@ let gameState = true
 let bg1 = new BG(0, 0, 1500, 700, 'img/bg1.jpeg')
 let bg2 = new BG(-1500, 0, 1500, 700, 'img/bg1.jpg')
 let jerry = new JERRY(30, 500, 100, 100,'img/jerry.png')
-let ratoeira = new TRAP(1500, 500, 100, 100, 'img/trap.jpg')
-let queijo1 = new CHEESE(1500, 500, 100, 100, 'img/cheese1.webp')
-let queijo2 = new CHEESE(1500, 500, 100, 100, 'img/cheese2.webp')
-let queijo3 = new CHEESE(1500, 500, 100, 100, 'img/cheese3.webp')
+let ratoeira = new TRAP(1400, 500, 100, 100, 'img/trap.jpg')
+let queijo1 = new CHEESE(1400, 500, 100, 100, 'img/cheese1.png')
+let queijo2 = new CHEESE(1400, 500, 100, 100, 'img/cheese2.png')
+let queijo3 = new CHEESE(1400, 500, 100, 100, 'img/cheese3.png')
 let points = new TEXT()
-
+let contador = 0
 
 
 
 function draw() {
     bg1.drawing()
     bg2.drawing()
-    points.showText(jerry.pontos, 40, 100, 'white')
     if(gameState = true){
         jerry.drawing()
         queijo1.drawing()
         queijo2.drawing()
         queijo3.drawing()
-        ratoeira.drawing()       
+        ratoeira.drawing() 
+        points.showText(jerry.pontos, 40, 100, 'white')      
     }
 }
 
@@ -35,6 +35,10 @@ function update() {
     jerry.colisao(queijo2)
     jerry.colisao(queijo3)
     jerry.colisao(ratoeira)
+    ratoeira.move()
+    queijo1.move()
+    queijo2.move()
+    queijo3.move()
     }
     punctuation()
     colision()
@@ -42,21 +46,27 @@ function update() {
 }
 
 function punctuation() {
-    points +=10;
+    contador += 1
+    if (contador >= 180) {
+     contador = 0;
+     jerry.pontos +=10;
+    }
+    console.log(contador)
+    console.log(jerry.pontos)
 }
 
 function colision() {
     if (jerry.colisao(queijo1)) {
         queijo1.respaw()
-        points += 100
+        jerry.pontos += 100
     }
     if (jerry.colisao(queijo2)) {
         queijo2.respaw()
-        points += 500
+        jerry.pontos += 500
     }
     if (jerry.colisao(queijo3)) {
         queijo3.respaw()
-        points += 1000
+        jerry.pontos += 1000
     }
 }
 

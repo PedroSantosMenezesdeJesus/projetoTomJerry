@@ -55,9 +55,9 @@ class JERRY extends obj{
 
 class TRAP extends obj{
     move(){
-        this.x -=20
-        if (this.x < 1500) {
-            this.x = Math.random()*(850 - 0)
+        this.x -=10
+        if (this.x < 0) {
+            this.x = Math.random()*(2000)
         }
     }
 }
@@ -81,6 +81,6 @@ class TEXT{
     showText(text, x, y) {
         quadro.font = "40px Arial"
         quadro.fillstyle = "white"
-        quadro.filltext(text, x, y)
+        quadro.fillText(text, x, y)
     }
 }
