@@ -43,8 +43,8 @@ class JERRY extends obj{
         direcao = this.y
     }
     colisao(obj){
-        if(this.x < obj.x + obj.largura && this.x + obj.largura > obj.x
-            && this.y < obj.y + obj.altura && this.y + obj.altura > obj.y){
+        if(this.x < obj.x + obj.width && this.x + obj.width > obj.x
+            && this.y < obj.y + obj.height && this.y + obj.height > obj.y){
             return true
         }
         else{
@@ -55,9 +55,9 @@ class JERRY extends obj{
 
 class TRAP extends obj{
     move(){
-        this.x -=10
+        this.x -=5
         if (this.x < 0) {
-            this.x = Math.random()*(2000)
+            this.x = Math.random()*(2500)
         }
     }
 }

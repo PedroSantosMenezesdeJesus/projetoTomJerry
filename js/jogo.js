@@ -3,10 +3,10 @@ let gameState = true
 let bg1 = new BG(0, 0, 1500, 700, 'img/bg1.jpeg')
 let bg2 = new BG(-1500, 0, 1500, 700, 'img/bg1.jpg')
 let jerry = new JERRY(30, 500, 100, 100,'img/jerry.png')
-let ratoeira = new TRAP(1400, 500, 100, 100, 'img/trap.jpg')
-let queijo1 = new CHEESE(1400, 500, 100, 100, 'img/cheese1.png')
-let queijo2 = new CHEESE(1400, 500, 100, 100, 'img/cheese2.png')
-let queijo3 = new CHEESE(1400, 500, 100, 100, 'img/cheese3.png')
+let ratoeira = new TRAP(1400, 500, 100, 100, 'img/trap.png')
+let queijo1 = new CHEESE(1300, 500, 100, 100, 'img/cheese1.png')
+let queijo2 = new CHEESE(1200, 500, 100, 100, 'img/cheese2.png')
+let queijo3 = new CHEESE(1100, 500, 100, 100, 'img/cheese3.png')
 let points = new TEXT()
 let contador = 0
 
@@ -39,10 +39,10 @@ function update() {
     queijo1.move()
     queijo2.move()
     queijo3.move()
-    }
     punctuation()
     colision()
     gameOver()
+    }
 }
 
 function punctuation() {
@@ -51,8 +51,6 @@ function punctuation() {
      contador = 0;
      jerry.pontos +=10;
     }
-    console.log(contador)
-    console.log(jerry.pontos)
 }
 
 function colision() {
@@ -77,6 +75,7 @@ function gameOver() {
     if (gameState = false) {
         window.location.href = "gameover.html"
     }
+    console.log(gameState)
 }
 
 function main() {
