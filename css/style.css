@@ -1,23 +1,112 @@
 /*  * É UM SELETOR UNIVERSAL PARA SER APLICADO EM TODAS AS PAGINAS*/
 *{
-    margin: 0; /* MARGEM ZERADA*/
-    padding: 0;/* ESPAÇAMENTO ZERADO */
-    box-sizing: border-box;/* BORDAS*/
-  }
-
-.gm1{
-    background-color: rgb(154, 118, 9);/* COR DE FUNDO COM RGB*/
-    background-image:url(../img/bg1.jpeg);
-    width: 100%;
-    height: 500px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    background-size: cover;
-  }
+  margin: 0; /* MARGEM ZERADA*/
+  padding: 0;/* ESPAÇAMENTO ZERADO */
+  box-sizing: border-box;/* BORDAS*/
+}
   
+/*Uma cor para a página*/
+body{
+  background-color: rgb(255, 255, 255);/* COR DE FUNDO COM RGB*/
+}
 
-.gameBoard1{
+/*Inicio dos códigos do Index.html*/
+/*Todo o background*/
+.game-board{
+  background-image:url(../img/menu.png);
+  width: 100%;
+  height: 695px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+} /*gm (é o que adiciona a imagem de fundo do inicio)*/
 
- background-image:url(../img/bg1.jpeg);
+
+/*Estilo do button*/
+#btn-begin{
+  margin-top:20%;
+  width:150px;
+  height:70px;
+  background: #a95a37;
+  color:#ffc361;
+  border-style:solid;
+  border-color:#4c0d07;
+  border-radius:5px;
+} /* Button e o interior da caixinha*/
+
+
+/*É a caixa em que o Tom e Jerry está junto ao button*/
+#border{
+  /*alinha os objetos*/
+  text-align:center;
+ /*abaixo está o código que centraliza*/
+  left:50%;
+  top:50%;
+  position: absolute;
+  transform:translate(-50%,-50%);
+  width:100%;
+  max-width:350px;
+  background-color:#7b3b29;
+  border-style:solid;
+  border-radius:40px;
+  border-color:#4c0d07;
+}
+
+/*Caixa de texto (Tom e Jerry)*/
+#border h1 {
+  color:#ffc361;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height: 2; /* posição do título "tom e jerry"*/
+}
+
+/*Códigos FinalJogo*/
+.GameOverWindow{
+  background-image:url(../img/bg3.jpeg);
+  width: 100%;
+  height: 695px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+}
+
+#GOW{
+   text-align:center;
+    left:50%;
+    top:50%;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    height:28%;
+    width:100%;
+    max-width:350px;
+    color:#ffc361;;
+    background-color:#7b3b29;
+    border-style:solid;
+    border-radius:40px;
+    border-color:#4c0d07;
+}
+
+#buttonTI{
+  margin-top:20%;
+  width:150px;
+  height:70px;
+  background-color:#a95a37;
+  border-style:solid;
+  border-radius:40px;
+  border-color:#4c0d07;
+  color:#ffc361;
+}
+
+#buttonRE{
+  margin-top:20%;
+  width:150px;
+  height:70px;
+  background-color:#a95a37;
+  border-style:solid;
+  border-radius:40px;
+  border-color:#4c0d07;
+  color:#ffc361;
 }

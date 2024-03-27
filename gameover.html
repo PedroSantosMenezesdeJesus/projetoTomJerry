@@ -1,38 +1,19 @@
-<!--IDENTTIFICA O NAVEGADOR  -->
 <!DOCTYPE html>
-<!-- INICIA O HTML E DEFINE A LINGUAGEM -->
 <html lang="pt-br">
-<!-- INICIO DO CABEÇALHO -->
 <head>
-    <!--IDENTIFICA CARACTERES ESPECIAIS E ACENTOS -->
     <meta charset="UTF-8">
-    <!-- IDENTIFICA O DISPOSITIVO (CELULAR, TABLET,PC) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- TITULO DA PÁGINA-->
     <title> fim de jogo</title>
-    <!-- Chamar o css externo -->
     <link href="css/style.css" rel="stylesheet">
-    <!-- FINAL DO CABEÇALHO -->
 </head>
 
-<!-- INICIO DO CORPO DA PAGINA-->
 <body>
-    <!-- CRIAR CANVAS-->
-    <canvas id="canvas" width="100%" height="500">
-    <!-- DIV COM A CLASSE GAME-BOARD-->
-    <div class="gameBoard3">
-        <img src="img/gameOver.jpeg">
-    </div>
+    <div class="GameOverWindow">
+      <div id="GOW"> <h1>O que você gostaria?</h1>
+        <button onclick= "window.location.href='index.html'"() id="buttonTI">Tela Inicial</button> 
+        <button onclick= "window.location.href='jogo.html'"() id="buttonRE">Reiniciar</button> 
+  </div>
+ </div>
 
-    <!--CRIAR DIV PARA O BOTÃO DE REINICIAR O JOGO-->
-    <div class="begin">
-        <!-- BOTÃO PARA REINICIAR O JOGO-->
-        <button onclick="window.location.href='jogo.html'"> TENTE DE NOVO</button>
-    </div>
-    <!-- FIM DO CANVA-->
-    </canvas>
-    
-    <!-- FIM DO CORPO DA PÁGINA-->
 </body>
-<!-- FINAL DO HTML -->
 </html>
