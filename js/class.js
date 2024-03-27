@@ -40,7 +40,7 @@ class JERRY extends obj{
     pontos = 0
     //criar função pulo
     pular(){
-        direcao = this.y
+        this.y += this.direcao
     }
     colisao(obj){
         if(this.x < obj.x + obj.width && this.x + obj.width > obj.x
@@ -84,3 +84,5 @@ class TEXT{
         quadro.fillText(text, x, y)
     }
 }
+
+class WALL extends obj {}
