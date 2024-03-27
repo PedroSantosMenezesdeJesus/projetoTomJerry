@@ -1,4 +1,5 @@
 //criar classes
+//criar a classe objeto para ser de base para as outras classes
 class obj{
     //criar os variavel frames 
     frame = 1
@@ -42,6 +43,7 @@ class JERRY extends obj{
     pular(){
         this.y += this.direcao
     }
+    //criar função para colisão
     colisao(obj){
         if(this.x < obj.x + obj.width && this.x + obj.width > obj.x
             && this.y < obj.y + obj.height && this.y + obj.height > obj.y){
@@ -53,22 +55,29 @@ class JERRY extends obj{
     }
 }
 
+//criar função da armadilha para matar o jerry
 class TRAP extends obj{
+    //função para movimentar as armadilhas
     move(){
         this.x -=5
+        //if para que quando a armadilha fosse para o fim da tela voltase aleatoriamente  
         if (this.x < 0) {
             this.x = Math.random()*(2500)
         }
     }
 }
 
+//classe queijo
 class CHEESE extends TRAP{
+    //função respaw para que quando você pego pelo jerry conseguise voltar
     respaw() {
         this.x = Math.random()*(850 - 0)
     }
 }
 
+//classe para o cenario de fundo
 class BG extends obj{
+    //movimentação do fundo
     movement(speed, limit, pos){
         this.x -= speed
         if (this.x > limit) {
@@ -77,7 +86,9 @@ class BG extends obj{
     }
 }
 
+//classe texto
 class TEXT{
+    //função para mostrar o texto
     showText(text, x, y) {
         quadro.font = "40px Arial"
         quadro.fillstyle = "white"
@@ -85,4 +96,5 @@ class TEXT{
     }
 }
 
+//função parede
 class WALL extends obj {}
