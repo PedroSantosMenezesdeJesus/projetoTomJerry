@@ -1,36 +1,45 @@
 // criar var quadro para que a tela fique atualizando constantemente
 let quadro = document.getElementById('canvas').getContext("2d")
 // criar variaveis para o backgound e sua movimentação
-let bg1 = new BG(0, 0, 1500, 700, 'img/bg1.jpeg')
-let bg2 = new BG(-1500, 0, 1500, 700, 'img/bg1.jpg')
+let bg1 = new BG(0, 20, window.outerWidth, window.outerHeight, 'img/bg1.jpeg')
+let bg2 = new BG(-1500, 20, window.outerWidth, window.outerHeight, 'img/bg1.jpg')
 // criar variavel jerry/personagem principal
 let jerry = new JERRY(30, 500, 100, 100,'img/jerry.png')
 // criar variavel ratoeira
-let ratoeira = new TRAP(1400, 500, 100, 100, 'img/trap.png')
+let ratoeira = new TRAP(1400, 500, 80, 80, 'img/trap.png')
 // criar variaveis queijos para ganha pontos
 let queijo1 = new CHEESE(1300, 500, 100, 100, 'img/cheese1.png')
 let queijo2 = new CHEESE(1200, 500, 100, 100, 'img/cheese2.png')
 let queijo3 = new CHEESE(1100, 500, 100, 100, 'img/cheese3.png')
 // criar var parede para que o jerry não caia no "void" e ajustar a direção
 let parede = new WALL(30, 550, 1500, 50)
+let parede2 = new WALL(30, 260, 1500, 110)
 //var pontos
 let points = new TEXT()
 // var contador para a pontuação por tempo
 let contador = 0
-
+//criar audios
+let jumpSound = new Audio('sons/jump.mpeg')
+let eatSound = new Audio('sons/mastigar.mpeg')
+let loseSound = new Audio('sons/lose.mpeg')
 //ativar o pulo quando clicar na tecla
-document.addEventListener("keydown",function(e){
-    if (e.key === 'w'){
-        jerry.direcao = -5
-    }
-})
+function jump() {
+    document.addEventListener("keydown",function(e){
+        if (e.key === 'w'){
+            jerry.direcao = -5
+            jumpSound.play()
+        }
+    })
+}
 
 //cair quando larga o botão de pulo
-document.addEventListener("keyup", function(e){
-    if (e.key === 'w'){
-        jerry.direcao = +5
-    }
-})
+function noJump() {
+    document.addEventListener("keyup", function(e){
+        if (e.key === 'w'){
+            jerry.direcao = +5
+        }
+    })
+}
 
 //função desenhar para mostrar as imagens
 function draw() {
@@ -66,6 +75,8 @@ function update() {
     queijo2.move()
     queijo3.move()
     //funções
+    jump()
+    noJump()
     punctuation()
     colision()
 }
@@ -85,21 +96,29 @@ function colision() {
     if (jerry.colisao(parede)) {
         jerry.direcao = 0
     }
+    if (jerry.colisao(parede2)) {
+        jerry.direcao = 5
+        return jump()
+    }
     //colisão para ganhar pontos
     if (jerry.colisao(queijo1)) {
         queijo1.respaw()
         jerry.pontos += 100
+        eatSound.play()
     }
     if (jerry.colisao(queijo2)) {
         queijo2.respaw()
         jerry.pontos += 500
+        eatSound.play()
     }
     if (jerry.colisao(queijo3)) {
         queijo3.respaw()
         jerry.pontos += 1000
+        eatSound.play()
     }
     //colisão de derrota
     if (jerry.colisao(ratoeira)) {
+        loseSound.play()
         window.location.href='gameover.html'
     }
 }

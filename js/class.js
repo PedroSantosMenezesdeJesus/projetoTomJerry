@@ -59,10 +59,10 @@ class JERRY extends obj{
 class TRAP extends obj{
     //função para movimentar as armadilhas
     move(){
-        this.x -=5
+        this.x -=7
         //if para que quando a armadilha fosse para o fim da tela voltase aleatoriamente  
         if (this.x < 0) {
-            this.x = Math.random()*(2500)
+            this.x = 2500
         }
     }
 }
