@@ -22,6 +22,7 @@ let contador = 0
 let jumpSound = new Audio('sons/jump.mpeg')
 let eatSound = new Audio('sons/mastigar.mpeg')
 let loseSound = new Audio('sons/lose.mpeg')
+let gameMusic = new Audio('sons/gameMusic.mpeg')
 //ativar o pulo quando clicar na tecla
 function jump() {
     document.addEventListener("keydown",function(e){
@@ -79,8 +80,10 @@ function update() {
     noJump()
     punctuation()
     colision()
+    //música de fundo
+    gameMusic.loop = true
+    gameMusic.play()
 }
-
 //função pontuação por tempo
 function punctuation() {
     contador += 1
