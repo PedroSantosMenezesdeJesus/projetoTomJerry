@@ -4,13 +4,15 @@ let quadro = document.getElementById('canvas').getContext("2d")
 let bg1 = new BG(0, 20, window.outerWidth, window.outerHeight, 'img/bg1.jpeg')
 let bg2 = new BG(-1500, 20, window.outerWidth, window.outerHeight, 'img/bg1.jpg')
 // criar variavel jerry/personagem principal
-let jerry = new JERRY(30, 500, 100, 100,'img/jerry.png')
+let jerry = new JERRY(150, 500, 100, 100,'img/jerry.png')
+//criar variavel tom
+let tom = new TOM(10, 400, 170, 250, 'img/tom.png')
 // criar variavel ratoeira
-let ratoeira = new TRAP(1400, 500, 80, 80, 'img/trap.png')
+let ratoeira = new TRAP(1400, 520, 60, 70, 'img/trap.png')
 // criar variaveis queijos para ganha pontos
-let queijo1 = new CHEESE(1300, 500, 100, 100, 'img/cheese1.png')
-let queijo2 = new CHEESE(1200, 500, 100, 100, 'img/cheese2.png')
-let queijo3 = new CHEESE(1100, 500, 100, 100, 'img/cheese3.png')
+let queijo1 = new CHEESE(1300, 500, 55, 55, 'img/cheese1.png')
+let queijo2 = new CHEESE(1200, 500, 60, 60, 'img/cheese2.png')
+let queijo3 = new CHEESE(1100, 500, 70, 70, 'img/cheese3.png')
 // criar var parede para que o jerry não caia no "void" e ajustar a direção
 let parede = new WALL(30, 550, 1500, 50)
 let parede2 = new WALL(30, 260, 1500, 110)
@@ -28,6 +30,7 @@ function jump() {
     document.addEventListener("keydown",function(e){
         if (e.key === 'w'){
             jerry.direcao = -5
+            tom.direcao2 = -5
             jumpSound.play()
         }
     })
@@ -38,6 +41,7 @@ function noJump() {
     document.addEventListener("keyup", function(e){
         if (e.key === 'w'){
             jerry.direcao = +5
+            tom.direcao2 = +5
         }
     })
 }
@@ -47,6 +51,7 @@ function draw() {
     bg1.drawing()
     bg2.drawing()
     jerry.drawing()
+    tom.drawing()
     queijo1.drawing()
     queijo2.drawing()
     queijo3.drawing()
@@ -64,6 +69,7 @@ function update() {
     bg2.animation('bg')
     //pulo do protagonista
     jerry.pular()
+    tom.pular2()
     //colisões
     jerry.colisao(parede)
     jerry.colisao(queijo1)
@@ -98,9 +104,11 @@ function colision() {
     //parede para não cair no espaço
     if (jerry.colisao(parede)) {
         jerry.direcao = 0
+        tom.direcao2 = 0
     }
     if (jerry.colisao(parede2)) {
         jerry.direcao = 5
+        tom.direcao2 = 5
         return jump()
     }
     //colisão para ganhar pontos

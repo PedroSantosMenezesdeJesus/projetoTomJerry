@@ -101,10 +101,7 @@ body{
 
 /*Jogo.html*/
 #canvas{
-  width: 100%;
-  height: 690px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
+  width:1536px;
+  height:691px;
+  background-image:url(/projetoTomJerry-main/img/bg3.jpeg)
 }

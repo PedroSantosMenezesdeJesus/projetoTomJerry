@@ -55,6 +55,16 @@ class JERRY extends obj{
     }
 }
 
+//criar classe Tom
+class TOM extends obj{
+    //criar direcapo
+    direcao2 = 0
+    //criar função pulo
+    pular2(){
+        this.y += this.direcao2
+    }
+}
+
 //criar função da armadilha para matar o jerry
 class TRAP extends obj{
     //função para movimentar as armadilhas
